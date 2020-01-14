@@ -22,16 +22,22 @@ class TaskService {
     this.storage.saveTask(task);
   }
 
-  getOpenTasks() {
-    let openTasks = this.storage.getTasks().filter(t => t.open);
+  getOpenTasks(descFilter = '') {
+    let openTasks = this.storage
+      .getTasks()
+      .filter(t => t.open)
+      .filter(t => t.desc.includes(descFilter));
 
     let sortOption = this.storage.getSortOptionForOpenTasks();
 
     return this._sort(openTasks, sortOption, t => t.openDate, t => t.desc);
   }
 
-  getClosedTasks() {
-    let closedTasks = this.storage.getTasks().filter(t => !t.open);
+  getClosedTasks(descFilter = '') {
+    let closedTasks = this.storage
+      .getTasks()
+      .filter(t => !t.open)
+      .filter(t => t.desc.includes(descFilter));
 
     let sortOption = this.storage.getSortOptionForClosedTasks();
 

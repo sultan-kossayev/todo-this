@@ -2,11 +2,16 @@ import './../style.css';
 import CreateTaskView from './createTaskView.js';
 import OpenTaskListView from './openTaskListView.js';
 import ClosedTaskListView from './closedTaskListView.js';
+import SearchBoxView from './searchBoxView.js';
 import TaskService from './taskService.js';
 import Storage from './storage.js';
 
 class TodoApp {
   constructor() {
+    this.searchBoxView = new SearchBoxView(
+      this.handleSearchTasksRequest.bind(this),
+    );
+
     this.createTaskView = new CreateTaskView(
       this.handleCreateTaskRequest.bind(this),
     );
@@ -32,7 +37,6 @@ class TodoApp {
 
   handleCreateTaskRequest(taskDescription) {
     this.taskService.createTask(taskDescription);
-    let openTasks = this.taskService.getOpenTasks();
 
     this._render();
   }
@@ -67,14 +71,18 @@ class TodoApp {
     this._render();
   }
 
-  _render() {
+  handleSearchTasksRequest(searchText) {
+    this._render(searchText);
+  }
+
+  _render(descFilter = '') {
     this.openTaskListView.show(
-      this.taskService.getOpenTasks(),
+      this.taskService.getOpenTasks(descFilter),
       this.taskService.getSortOptionForOpenTasks(),
     );
 
     this.closedTaskListView.show(
-      this.taskService.getClosedTasks(),
+      this.taskService.getClosedTasks(descFilter),
       this.taskService.getSortOptionForClosedTasks(),
     );
   }
