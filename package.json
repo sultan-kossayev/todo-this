@@ -2,7 +2,7 @@
   "name": "html-js_boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate for developing simple apps with babel and hot reload",
-  "main": "index.js",
+  "main": "./js/todoApp.js",
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.5.5",

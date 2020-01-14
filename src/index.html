@@ -1,10 +1,47 @@
 <!DOCTYPE html>
   <head>
-    <title>HTML + JS boilerplate project</title>
+    <title>Todo This app</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
   <body>
-    <div>Hello, world</div>
+    <div class="container">
+      <div class="header">
+        <div class="title">Todo List</div>
+        <input type="search" />
+      </div>
+      <div class="content">
+        <div id="create-task-view" class="content-new-task">
+          <input type="text" placeholder="New task..."/>
+          <button >Add</button>
+        </div>
+        <div id="open-tasks-view" class="content-open-tasks">
+          <div class="control">
+            <div>Open</div>
+            <select class='sort'>
+              <option data-sort-field='date' data-sort-order='asc'>Date creation (asc)</option>
+              <option data-sort-field='date' data-sort-order='desc'>Date creation (desc)</option>
+              <option data-sort-field='text' data-sort-order='asc'>Text (asc)</option>
+              <option data-sort-field='text' data-sort-order='desc'>Text (desc)</option>
+            </select>
+          </div>
+          <div class="list">
+          </div>
+        </div>
+        <div id="closed-tasks-view" class="content-closed-tasks">
+          <div class="control">
+            <div>Closed</div>
+            <select class='sort'>
+              <option data-sort-field='date' data-sort-order='asc'>Closed date (asc)</option>
+              <option data-sort-field='date' data-sort-order='desc'>Closed date (desc)</option>
+              <option data-sort-field='text' data-sort-order='asc'>Text (asc)</option>
+              <option data-sort-field='text' data-sort-order='desc'>Text (desc)</option>
+            </select>
+          </div>
+          <div class="list">
+          </div>
+        </div>
+      </div>
+    </div>                
   </body>
 </html>

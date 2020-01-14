@@ -1,3 +1,36 @@
-div {
-  color: blue;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 700px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #4195EB;
+  padding: 5px 50px;
+}
+
+.header .title {
+  color: #fff;  
+}
+
+.content {
+  padding: 5px 50px;
+}
+
+.content-new-task,
+.content-open-tasks .control,
+.content-closed-tasks .control {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list .item button.delete {
+  display: none;
+}
+
+.list .item:hover button.delete {
+  display: block;
 }

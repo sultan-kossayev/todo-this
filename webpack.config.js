@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 config = {
-  entry: { main: './src/index.js' },
+  entry: { main: './src/js/todoApp.js' },
 
   output: {
     path: path.resolve(__dirname, './dist'),
