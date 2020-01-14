@@ -50,7 +50,7 @@ class TodoApp {
   }
 
   handleUpdateTaskDescriptionRequest(id, newDescription) {
-    this.taskService.updateTaskDesc(id, desc);
+    this.taskService.updateTaskDesc(id, newDescription);
 
     this._render();
   }

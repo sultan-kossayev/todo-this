@@ -12,6 +12,7 @@ class OpenTaskListView {
       this.id,
       taskSelectedHandler,
       taskRemovedHandler,
+      itemUpdateHandler,
       sortHandler,
     );
   }

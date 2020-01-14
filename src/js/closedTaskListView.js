@@ -12,6 +12,7 @@ class ClosedTaskListView {
       this.id,
       itemSelectedHandler,
       taskRemovedHandler,
+      itemUpdateHandler,
       sortHandler,
     );
   }

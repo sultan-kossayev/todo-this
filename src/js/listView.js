@@ -101,10 +101,12 @@ class ListView {
   }
 
   _bindItemUpdated(handler) {
+    let prevValue = '';
     this.list.addEventListener('dblclick', e => {
       if (e.target.matches('.task-description')) {
         let target = e.target;
-        let parent = e.target.parentElement;
+        let parent = target.parentElement;
+        prevValue = target.innerHTML;
 
         let input = document.createElement('input');
         input.classList.add('task-description-input');
@@ -118,14 +120,20 @@ class ListView {
 
     this.list.addEventListener('keyup', e => {
       if (e.target.matches('.task-description-input')) {
+        let target = e.target;
+        let parent = e.target.parentElement;
         if (e.keyCode == 13) {
-          console.log(e.target);
-          let id = e.target.parentElement.parentElement.dataset.taskId;
-          //handler(id, e.target.value);
+          let id = parent.parentElement.dataset.taskId;
+          handler(id, target.value);
         }
 
         if (e.keyCode == 27) {
-          // escape
+          let label = document.createElement('label');
+          label.classList.add('task-description');
+          label.innerHTML = prevValue;
+
+          parent.removeChild(target);
+          parent.appendChild(label);
         }
       }
     });

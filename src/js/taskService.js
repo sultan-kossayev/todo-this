@@ -16,7 +16,6 @@ class TaskService {
   }
 
   updateTaskDesc(id, desc) {
-    console.log(desc);
     let task = this.storage.findTaskById(id);
     task.updateDesc(desc);
 
