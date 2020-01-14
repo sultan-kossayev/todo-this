@@ -21,6 +21,7 @@ class TodoApp {
       this.handleRemoveTaskRequest.bind(this),
       this.handleUpdateTaskDescriptionRequest.bind(this),
       this.handleSortOpenTasksRequest.bind(this),
+      this.handleRemoveOpenTasksRequest.bind(this),
     );
 
     this.closedTaskListView = new ClosedTaskListView(
@@ -28,6 +29,7 @@ class TodoApp {
       this.handleRemoveTaskRequest.bind(this),
       this.handleUpdateTaskDescriptionRequest.bind(this),
       this.handleSortClosedTasksRequest.bind(this),
+      this.handleRemoveClosedTasksRequest.bind(this),
     );
 
     this.taskService = new TaskService(new Storage());
@@ -73,6 +75,18 @@ class TodoApp {
 
   handleSearchTasksRequest(searchText) {
     this._render(searchText);
+  }
+
+  handleRemoveOpenTasksRequest() {
+    this.taskService.removeOpenTasks();
+
+    this._render();
+  }
+
+  handleRemoveClosedTasksRequest() {
+    this.taskService.removeClosedTasks();
+
+    this._render();
   }
 
   _render(descFilter = '') {

@@ -2,18 +2,20 @@ import ListView from './listView.js';
 
 class OpenTaskListView {
   constructor(
-    taskSelectedHandler,
-    taskRemovedHandler,
+    itemSelectedHandler,
+    itemRemovedHandler,
     itemUpdateHandler,
     sortHandler,
+    removeAllItemsHandler,
   ) {
     this.id = '#open-tasks-view';
     this.view = new ListView(
       this.id,
-      taskSelectedHandler,
-      taskRemovedHandler,
+      itemSelectedHandler,
+      itemRemovedHandler,
       itemUpdateHandler,
       sortHandler,
+      removeAllItemsHandler,
     );
   }
 

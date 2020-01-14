@@ -71,6 +71,14 @@ class TaskService {
     return this.storage.getSortOptionForClosedTasks();
   }
 
+  removeOpenTasks() {
+    this.getOpenTasks().forEach(t => this.removeTask(t.id));
+  }
+
+  removeClosedTasks() {
+    this.getClosedTasks().forEach(t => this.removeTask(t.id));
+  }
+
   _sort(list, sortOption, dateProvider, descProvider) {
     let fieldProvider =
       sortOption.field === 'date' ? dateProvider : descProvider;

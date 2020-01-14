@@ -5,6 +5,7 @@ class ListView {
     itemRemovedHandler,
     itemUpdatedHandler,
     sortHandler,
+    removeAllItemsHandler,
   ) {
     this.view = document.querySelector(id);
     this.list = this.view.querySelector('.list');
@@ -13,6 +14,7 @@ class ListView {
     this._bindItemRemoved(itemRemovedHandler);
     this._bindItemUpdated(itemUpdatedHandler);
     this._bindSortHandler(sortHandler);
+    this._bindRemoveAllItemsHandler(removeAllItemsHandler);
   }
 
   show(tasks, sortOption) {
@@ -148,6 +150,12 @@ class ListView {
 
       handler(sortField, sortOrder);
     });
+  }
+
+  _bindRemoveAllItemsHandler(handler) {
+    let link = this.view.querySelector('.clear-items');
+
+    link.addEventListener('click', e => handler());
   }
 }
 
