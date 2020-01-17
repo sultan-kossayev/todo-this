@@ -1,36 +1,101 @@
+body {
+  margin: 0px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 700px;
+  width: 600px;
+  margin: 0px auto;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   background-color: #4195EB;
-  padding: 5px 50px;
+  padding: 5px 80px;
 }
 
 .header .title {
-  color: #fff;  
+  color: #fff;
 }
 
 .content {
-  padding: 5px 50px;
+  padding: 5px 80px;
+}
+
+.content-new-task {
+  margin: 10px 0px;
+}
+
+.content-tasks {
+  margin: 30px 0px;
 }
 
 .content-new-task,
-.content-open-tasks .control,
-.content-closed-tasks .control {
+.content-tasks .control,
+.content-tasks .control {
   display: flex;
   justify-content: space-between;
 }
 
+.content-new-task input {
+  flex-grow: 10;
+  margin-right: 10px;
+}
+
+.content-new-task button {
+  flex-grow: 1;
+  height: 30px;
+}
+
+.content-tasks .clear-items {
+  display: block;
+  text-align: right;
+  padding: 5px 0px;
+}
+
+/*LIST ITEMS */
+
+.list .item {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 20px 10px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #d2d2d2;
+}
+
+.list .item .task-description {
+  flex-grow: 2;
+  overflow-wrap: break-word;
+  width: 200px;
+}
+
+.list .item .task-description .task-description-input {
+  width: 100%;
+}
+
 .list .item button.delete {
   display: none;
+  height: 20px;
 }
 
 .list .item:hover button.delete {
   display: block;
+}
+
+.list .item .task-dates {
+  margin: 0px 15px;
+}
+
+.list .item .task-dates .task-open-date {
+  color: #999;
+}
+
+.list .item .task-dates .task-open-date, 
+.list .item .task-dates .task-closed-date {
+  margin: 0px;
+  font-size: 13px;
 }

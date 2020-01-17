@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-  <head>
+  <head> 
     <title>Todo This app</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
-  <body>
+  <body> 
     <div class="container">
       <div class="header">
-        <div class="title">Todo List</div>
-        <input id="searchbox" type="search" />
+        <div class="title"><b>Todo List</b></div>
+        <input id="searchbox" type="search" placeholder="Search..." />
       </div>
       <div class="content">
         <div id="create-task-view" class="content-new-task">
           <input type="text" placeholder="New task..."/>
           <button >Add</button>
         </div>
-        <div id="open-tasks-view" class="content-open-tasks">
+        <div id="open-tasks-view" class="content-tasks">
           <div class="control">
-            <div>Open</div>
+            <span><b>Open</b></span>
             <select class='sort'>
               <option data-sort-field='date' data-sort-order='asc'>Date creation (asc)</option>
               <option data-sort-field='date' data-sort-order='desc'>Date creation (desc)</option>
@@ -29,9 +29,9 @@
           </div>
           <a class ='clear-items' href="#">Clear 'Open' list</a>
         </div>
-        <div id="closed-tasks-view" class="content-closed-tasks">
+        <div id="closed-tasks-view" class="content-tasks">
           <div class="control">
-            <div>Done</div>
+            <span><b>Done</b></span>
             <select class='sort'>
               <option data-sort-field='date' data-sort-order='asc'>Closed date (asc)</option>
               <option data-sort-field='date' data-sort-order='desc'>Closed date (desc)</option>

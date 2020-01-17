@@ -54,9 +54,11 @@ class ListView {
 
     let itemHtml = `<div data-task-id="${id}" class="item">
                         <input class="task-state" type="checkbox"/>
-                        <div><label class="task-description">${description}</label></div>
-                        <span class="task-open-date">${openDateStr}</span>
-                        <span class="task-closed-time">${closedDateStr}</span>
+                        <div class="task-description"><span class="task-description-span">${description}</span></div>
+                        <div class="task-dates">
+                          <p class="task-open-date"><b>${openDateStr}</b></p>
+                          <p class="task-closed-date"><b>${closedDateStr}</b></p>
+                        </div>
                         <button class="delete">Remove</delete>
                     </div>`;
 
@@ -73,10 +75,9 @@ class ListView {
 
   _formatDate(date) {
     return date
-      ? date.toLocaleString('en-US', {
+      ? new Date(date).toLocaleString('en-US', {
           hour: 'numeric',
           minute: 'numeric',
-          second: 'numeric',
           hour12: true,
         })
       : '';
@@ -105,7 +106,7 @@ class ListView {
   _bindItemUpdated(handler) {
     let prevValue = '';
     this.list.addEventListener('dblclick', e => {
-      if (e.target.matches('.task-description')) {
+      if (e.target.matches('.task-description-span')) {
         let target = e.target;
         let parent = target.parentElement;
         prevValue = target.innerHTML;
@@ -130,8 +131,8 @@ class ListView {
         }
 
         if (e.keyCode == 27) {
-          let label = document.createElement('label');
-          label.classList.add('task-description');
+          let label = document.createElement('span');
+          label.classList.add('task-description-span');
           label.innerHTML = prevValue;
 
           parent.removeChild(target);
