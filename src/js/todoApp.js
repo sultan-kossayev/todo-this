@@ -1,10 +1,10 @@
 import './../style.css';
-import CreateTaskView from './createTaskView.js';
-import OpenTaskListView from './openTaskListView.js';
-import ClosedTaskListView from './closedTaskListView.js';
-import SearchBoxView from './searchBoxView.js';
-import TaskService from './taskService.js';
-import Storage from './storage.js';
+import CreateTaskView from './views/createTaskView.js';
+import OpenTaskListView from './views/openTaskListView.js';
+import ClosedTaskListView from './views/closedTaskListView.js';
+import SearchBoxView from './views/searchBoxView.js';
+import TaskService from './models/task/taskService.js';
+import TaskStorage from './models/task/taskstorage.js';
 
 class TodoApp {
   constructor() {
@@ -32,7 +32,7 @@ class TodoApp {
       this.handleRemoveClosedTasksRequest.bind(this),
     );
 
-    this.taskService = new TaskService(new Storage());
+    this.taskService = new TaskService(new TaskStorage());
 
     this._render();
   }

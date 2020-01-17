@@ -1,7 +1,7 @@
 import Task from './task.js';
-import SortOption from './sortOption.js';
+import SortOption from './../sortOption/sortOption.js';
 
-class Storage {
+class TaskStorage {
   constructor() {
     this.name = 'todo-tasks';
 
@@ -97,4 +97,4 @@ class Storage {
   }
 }
 
-export default Storage;
+export default TaskStorage;
